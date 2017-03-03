@@ -35,4 +35,25 @@ exercise.buildHtmlForImages = function(data){
     //     use forEach to construct html to
     //     display every image in flickr data
     // ------------------------------------------------
+
+    //JM add:
+    //console.log(data);
+    //console.log(data.photos.photo[0].url_s);
+
+    var wrapImgTag = function (element) {
+        str = '<img src="' + element.url_s + '">';
+        return str;
+    };
+
+    var imgstr = '';
+    var pushArrayToStr = function (element){
+        imgstr += '' + element;
+        return imgstr
+    };
+
+    var imgSrcArray = data.photos.photo.map(wrapImgTag);
+    imgSrcArray.forEach(pushArrayToStr);
+    return imgstr;
+
+
 };
